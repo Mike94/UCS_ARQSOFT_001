@@ -36,13 +36,13 @@
 - Revisión de silabos
 - Revisión de conceptos generales
 
-Videos:
-Video 1: https://youtu.be/2Bcbls0bBzs
-Video 2: https://youtu.be/97_3-D4NrI0
-Video 3: https://youtu.be/zZWVMmeDdQw
+- Videos:
+  - Video 1: https://youtu.be/2Bcbls0bBzs
+  - Video 2: https://youtu.be/97_3-D4NrI0
+  - Video 3: https://youtu.be/zZWVMmeDdQw
 
-Referencias:
-http://blog.soreygarcia.me/search/label/Arquitectura%20de%20Software
-https://sites.google.com/site/jgarzas/4mas1
-http://www.javiergarzas.com/
+- Referencias:
+  - http://blog.soreygarcia.me/search/label/Arquitectura%20de%20Software
+  - https://sites.google.com/site/jgarzas/4mas1
+  - http://www.javiergarzas.com/
 
