@@ -44,3 +44,8 @@
   - https://sites.google.com/site/jgarzas/4mas1
   - http://www.javiergarzas.com/
 
+# Clase 02
+
+- Fecha: 10-MAR-2016
+- Referencias:
+  - http://icomparable.blogspot.pe/2008/10/arquitectura-n-tier-o-arquitectura-n.html
