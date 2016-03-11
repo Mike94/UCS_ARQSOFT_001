@@ -48,6 +48,8 @@
 
 - Fecha: 10-MAR-2016
 - Vistas Arquitectónicas
+- Ejemplos: 
+  - https://github.com/gcoronelc/SISTUNI_PROG_JAVA_003
 - Referencias:
   - http://icomparable.blogspot.pe/2008/10/arquitectura-n-tier-o-arquitectura-n.html
   
@@ -56,4 +58,5 @@
 
 - Exposición 3 min
 - Test 
+
 
