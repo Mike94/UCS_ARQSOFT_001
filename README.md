@@ -50,3 +50,10 @@
 - Vistas Arquitectónicas
 - Referencias:
   - http://icomparable.blogspot.pe/2008/10/arquitectura-n-tier-o-arquitectura-n.html
+  
+  
+# Clase 03
+
+- Exposición 3 min
+- Test 
+
