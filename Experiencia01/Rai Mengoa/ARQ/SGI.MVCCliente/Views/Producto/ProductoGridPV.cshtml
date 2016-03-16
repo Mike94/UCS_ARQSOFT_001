@@ -1,0 +1,42 @@
+﻿@model ProductoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+
+@using System.Web.Script.Serialization
+
+@Html.Hidden("ProductoPageIndex", Model.EntityProductoPaginacion.EntityPaginacion.PageIndex, new { @id = "ProductoPageIndex" })
+@Html.Hidden("ProductoRowsPerPage", Model.EntityProductoPaginacion.EntityPaginacion.RowsPerPage, new { @id = "ProductoRowsPerPage" })
+@Html.Hidden("ProductoPageSize", Model.ListProductoPaginado.Count, new { @id = "ProductoPageSize" })
+@Html.Hidden("ProductoRowCount", Model.EntityProductoPaginacion.EntityPaginacion.RowCount, new { @id = "ProductoRowCount" })
+
+@{
+                var grid = new WebGrid(Model.ListProductoPaginado, canSort: false,
+                canPage: false, rowsPerPage: Constantes.RowsPerPage);
+}
+<div class="table-responsive">
+    @grid.GetHtml(tableStyle: "webGrid",
+                headerStyle: "header",
+                alternatingRowStyle: "alt",
+                selectedRowStyle: "select",
+                columns: grid.Columns(
+                        //grid.Column("Codigo", format: (item) => item.Key.IdProducto, style: "col-sm-1"),
+                grid.Column("Nombre", "Nombre"),
+                grid.Column("DescripcionCorta", "Descripcion Corta"),
+                grid.Column("DescripcionLarga", "Descripcion Larga"),
+                grid.Column("CantidadMinimaInventario", "C. Min. Inventario"),
+                grid.Column("CantidadInventario", "Cantidad Inventario"),
+                grid.Column("PrecioUnitario", "Precio Unitario"),
+                grid.Column("GrupoNombre", "Grupo"),
+                grid.Column("EstadoNombre", "Estado"),
+                grid.Column("Editar", format:
+                @<text>  @{
+                    String json = new JavaScriptSerializer().Serialize(item.Key);
+                    <button id="searchButton" type="button" class="btn btn-default" onclick="EditarProducto(@json)">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                }</text>)
+                )
+            )
+
+    <div id="pag_tblProducto"></div>
+</div>

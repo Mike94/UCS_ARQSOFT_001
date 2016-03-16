@@ -1,0 +1,37 @@
+﻿@model SGI.MVCCliente.ViewModel.EmpleadoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using System.Web.Script.Serialization
+
+<div role="tabpanel">
+    <!-- Nav tabs -->
+    @if (Model.EntityEmpleado.Key.IDEmpleado != Constantes.Cero)
+    {
+        <ul class="nav nav-tabs" id="tab-master">
+
+            <li id="empleado-nav" class="active"><a href="#empleado">@Model.EntityEmpleado.Nombres</a></li>
+
+            @if (Model.EntityUsuarioEmpleado.Key.IDUsuario != Constantes.Cero)
+            {
+                <li id="usuario-nav"><a href="#usuario">Editar Usuario</a></li>
+            }
+            else
+            {
+                <li id="usuario-nav"><a href="#usuario">Nuevo Usuario</a></li>
+                Model.EntityUsuarioEmpleado.Key.IDUsuario = Model.EntityEmpleado.Key.IDEmpleado; 
+            }
+
+
+        </ul>
+    }
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="empleado">
+            @Html.Partial(Constantes.EmpleadoEdit)
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="usuario">
+            @Html.Partial(Constantes.UsuarioEdit, new UsuarioViewModel { EntityUsuario = Model.EntityUsuarioEmpleado })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model  EmpleadoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using SGI.Proxy.Services.EmpleadoServices
+@using System.Web.Script.Serialization
+
+@if (Model.ListEmpleadoPaginado.Count < 1)
+{
+        <table class="webGrid">
+            <thead>
+                <tr class="header">
+                    <th scope="col">
+                        Codigo
+                    </th>
+                    <th scope="col">
+                        Tienda
+                    </th>
+                    <th scope="col">
+                        Nombres
+                    </th>
+                    <th scope="col">
+                        Apellidos
+                    </th>
+                    <th scope="col">
+                        Edad
+                    </th>
+                    <th scope="col">
+                        DNI
+                    </th>
+                    <th scope="col">
+                        Cargo
+                    </th>
+                    <th scope="col">
+                        Estado Civil
+                    </th>
+                    <th scope="col">
+                        Sexo
+                    </th>
+                    <th scope="col">
+                        Estado
+                    </th>
+                    <th scope="col">
+                        
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="10" class="text-center">
+                        <span>@Constantes.NoseEncontraronRegistros</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        var grid = new WebGrid(Model.ListEmpleadoPaginado, canSort: false,
+        canPage: false, rowsPerPage: Constantes.RowsPerPage);
+
+        @Html.Hidden("EmpleadoPageIndex", Model.EntityEmpleadoPaginacion.EntityPaginacion.PageIndex, new { @id = "EmpleadoPageIndex" })
+        @Html.Hidden("EmpleadoRowsPerPage", Model.EntityEmpleadoPaginacion.EntityPaginacion.RowsPerPage, new { @id = "EmpleadoRowsPerPage" })
+        @Html.Hidden("EmpleadoPageSize", Model.ListEmpleadoPaginado.Count, new { @id = "EmpleadoPageSize" })
+        @Html.Hidden("EmpleadoRowCount", Model.EntityEmpleadoPaginacion.EntityPaginacion.RowCount, new { @id = "EmpleadoRowCount" })
+
+        @grid.GetHtml(tableStyle: "webGrid",
+        headerStyle: "header",
+        alternatingRowStyle: "alt",
+        selectedRowStyle: "select",
+        columns: grid.Columns(
+        grid.Column("Codigo", format: (item) => item.Key.IDEmpleado),
+        grid.Column("NombreTienda", "Nombre Tienda"),
+        grid.Column("Nombres", "Nombres"),
+        grid.Column("Apellidos", "Apellidos"),
+        grid.Column("FechaNacimiento", "Fecha de Nacimiento"),
+        grid.Column("DNI", "DNI"),
+        grid.Column("NombreCargo", "Cargo"),
+        grid.Column("EstadoCivilNombre", "Estado Civil"),
+        grid.Column("SexoNombre", "Sexo"),
+        grid.Column("EstadoNombre", "Estado"),
+        grid.Column("Editar", format:
+        @<text>  @{
+            String json = new JavaScriptSerializer().Serialize(item.Key);
+        <button id="searchButton" type="button" class="btn btn-default" onclick="EditarEmpleado(@json)">
+            <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        }</text>))
+     )
+    <div id="pag_tblEmpleado"></div>
+}

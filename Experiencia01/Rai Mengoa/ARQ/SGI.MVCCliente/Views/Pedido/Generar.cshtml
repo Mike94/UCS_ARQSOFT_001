@@ -1,0 +1,39 @@
+﻿@model  PedidoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@{
+    ViewBag.Title = "Generar Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Hidden("Url_Pedido_GridPV", Url.Action("PedidoGenerarPV", "Pedido"), new { @id = "Url_Pedido_GridPV" })
+@Html.Hidden("Url_EditProductoPV", Url.Action("EditProductoPedidoPV", "Pedido"), new { @id = "Url_EditProductoPV" })
+@Html.Hidden("Url_PedidoCompleto_Guardar", Url.Action("PedidoCompletoGuardar", "Pedido"), new { @id = "Url_PedidoCompleto_Guardar" })
+@Html.Hidden("Url_PedidoProducto_Guardar", Url.Action("PedidoProductoGuardar", "Pedido"), new { @id = "Url_PedidoProducto_Guardar" })
+@Html.Hidden("Url_CabeceraGenerarPV", Url.Action("CabeceraGenerarPV", "Pedido"), new { @id = "Url_CabeceraGenerarPV" })
+@Html.Hidden("Url_GenerarPDF", Url.Action("GenerarPDF", "Pedido"), new { @id = "Url_GenerarPDF" })
+
+<h3 class="page-header">
+    <span>Pedidos</span>
+</h3>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        @*CABECERA*@
+        <div id="PedidoCabeceraPV">
+            @Html.Partial(Constantes.CabeceraGenerarPV)
+        </div>
+
+        @*DETALLE*@
+        <div id="PedidoGridPV">
+            @if (Model.ProductoViewModel != null)
+            {
+                @Html.Partial(Constantes.PedidoGenerarPV)
+            }
+        </div>
+
+    </div>
+</div>
+    
+<script src="~/Scripts/Views/Pedido.js"></script> 

@@ -1,0 +1,73 @@
+﻿@model GrupoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using SGI.Proxy.Services.GrupoServices
+@using System.Web.Script.Serialization
+
+@if (Model.ListGrupoPaginado.Count < 1)
+{
+    <table class="webGrid">
+        <thead>
+            <tr class="header">
+                <th scope="col">
+                    Codigo
+                </th>
+                <th scope="col">
+                    Nombre Grupo
+                </th>
+                <th scope="col">
+                    Nombre Grupo Padre
+                </th>
+                <th scope="col">
+                    Descripcion Corta
+                </th>
+                <th scope="col">
+                    Descripcion Larga
+                </th>
+                <th scope="col">
+                    Estado
+                </th>
+                <th scope="col">
+                    Editar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="7" class="text-center">
+                    <span>@Constantes.NoseEncontraronRegistros</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    var grid = new WebGrid(Model.ListGrupoPaginado, canSort: false,
+    canPage: false, rowsPerPage: Constantes.RowsPerPage);
+
+    @Html.Hidden("GrupoPageIndex", Model.EntityGrupoPaginacion.EntityPaginacion.PageIndex, new { @id = "GrupoPageIndex" })
+    @Html.Hidden("GrupoRowsPerPage", Model.EntityGrupoPaginacion.EntityPaginacion.RowsPerPage, new { @id = "GrupoRowsPerPage" })
+    @Html.Hidden("GrupoPageSize", Model.ListGrupoPaginado.Count, new { @id = "GrupoPageSize" })
+    @Html.Hidden("GrupoRowCount", Model.EntityGrupoPaginacion.EntityPaginacion.RowCount, new { @id = "GrupoRowCount" })
+
+    @grid.GetHtml(tableStyle: "webGrid",
+        headerStyle: "header",
+        alternatingRowStyle: "alt",
+        selectedRowStyle: "select",
+        columns: grid.Columns(
+        grid.Column("Codigo", format: (item) => item.Key.IDGrupo),
+        grid.Column("GrupoPadreNombre", "Grupo Padre"),
+        grid.Column("DescripcionCorta", "Nombre Grupo"),
+        grid.Column("DescripcionLarga", "Descripcion Larga"),
+        grid.Column("EstadoNombre", "Estado"),
+        grid.Column("Editar", format:
+        @<text>  @{
+            var json = new JavaScriptSerializer().Serialize(item.Key);
+            <button id="searchButton" type="button" class="btn btn-default" onclick="EditarGrupo(@json)">
+                <span class="glyphicon glyphicon-edit"></span>
+            </button>
+        }</text>))
+      )
+    <div id="pag_tblGrupo"></div>
+}

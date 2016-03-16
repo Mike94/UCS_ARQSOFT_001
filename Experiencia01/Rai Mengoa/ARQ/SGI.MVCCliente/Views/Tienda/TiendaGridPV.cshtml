@@ -1,0 +1,74 @@
+﻿@model TiendaViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using SGI.Proxy.Services.TiendaServices
+@using System.Web.Script.Serialization
+
+@if (Model.ListTiendaPaginado.Count < 1)
+{
+    <table class="webGrid">
+        <thead>
+            <tr class="header">
+                <th scope="col">
+                    Codigo
+                </th>
+                <th scope="col">
+                    Nombre Tienda
+                </th>
+                <th scope="col">
+                    Distrito
+                </th>
+                <th scope="col">
+                    Provincia
+                </th>
+                <th scope="col">
+                    Region/Departamento
+                </th>
+                <th scope="col">
+                    Referencia
+                </th>
+                <th scope="col">
+                    Editar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="7" class="text-center">
+                    <span>@Constantes.NoseEncontraronRegistros</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    var grid = new WebGrid(Model.ListTiendaPaginado, canSort: false,
+    canPage: false, rowsPerPage: Constantes.RowsPerPage);
+
+    @Html.Hidden("TiendaPageIndex", Model.EntityTiendaPaginacion.EntityPaginacion.PageIndex, new { @id = "TiendaPageIndex" })
+    @Html.Hidden("TiendaRowsPerPage", Model.EntityTiendaPaginacion.EntityPaginacion.RowsPerPage, new { @id = "TiendaRowsPerPage" })
+    @Html.Hidden("TiendaPageSize", Model.ListTiendaPaginado.Count, new { @id = "TiendaPageSize" })
+    @Html.Hidden("TiendaRowCount", Model.EntityTiendaPaginacion.EntityPaginacion.RowCount, new { @id = "TiendaRowCount" })
+
+    @grid.GetHtml(tableStyle: "webGrid",
+        headerStyle: "header",
+        alternatingRowStyle: "alt",
+        selectedRowStyle: "select",
+        columns: grid.Columns(
+        grid.Column("Codigo", format: (item) => item.Key.CodTienda),
+        grid.Column("NombreTienda", "Nombre Tienda"),
+        grid.Column("NombreDistrito", "Distrito"),
+        grid.Column("NombreProvincia", "Provincia"),
+        grid.Column("NombreDepartamento", "Departamento"),
+        grid.Column("Referencia", "Referencia"),
+        grid.Column("Editar", format:
+        @<text>  @{
+            var json = new JavaScriptSerializer().Serialize(item.Key);
+            <button id="searchButton" type="button" class="btn btn-default" onclick="EditarTienda(@json)">
+                <span class="glyphicon glyphicon-edit"></span>
+            </button>
+        }</text>))
+      )
+    <div id="pag_tblTienda"></div>
+}

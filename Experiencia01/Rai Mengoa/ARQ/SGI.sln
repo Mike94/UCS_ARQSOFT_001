@@ -1,0 +1,158 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SGISystem", "SGISystem", "{5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.Domain", "System.Domain\SGISystem.Domain.csproj", "{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SGIClient", "SGIClient", "{A099A619-C6DB-4A31-B925-D401BF1D7D29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.InfraStructure", "System.InfraStructure\SGISystem.InfraStructure.csproj", "{4D47917B-8175-409D-89BE-32DC6F292740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGI.MVCCliente", "SGI.MVCCliente\SGI.MVCCliente.csproj", "{1260E57B-E729-4868-9151-CF22B28300DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.Application", "System.Application\SGISystem.Application.csproj", "{D568E595-12A7-48CD-B398-837A55595E10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - WebServices", "04 - WebServices", "{91CD354C-B068-40EF-9BED-1242A793CEF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Domain", "01 - Domain", "{EADC3C9E-258F-4408-9E5D-1D1E8C76CDDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - InfraStructure", "02 - InfraStructure", "{FD5CC2F4-CDAF-4674-92C4-7A443E624BEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Application", "03 - Application", "{A8F9255D-2B63-40ED-92EE-45D20C1BC461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.Services.Contracts", "System.Services.Interfaces\SGISystem.Services.Contracts.csproj", "{415204C5-D659-48F0-8B4E-D2468505C72C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.Services.Implementation", "System.Services.Implementation\SGISystem.Services.Implementation.csproj", "{C3AC8768-3578-44A3-9DC8-7E707E02AFD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGI.Proxy", "SGI.Proxy\SGI.Proxy.csproj", "{AC9CAC6C-5BE3-4F0E-B201-C6B05C06EFEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Helpers", "00 - Helpers", "{55B3DC98-5530-4C0F-8D40-A3EA8A30B02E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.Helpers", "System.Helpers\SGISystem.Helpers.csproj", "{3B3A6FBD-4010-4FBD-95A6-00C84326C1DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGISystem.Services.WCFHost", "SGISystem.Services.WCFHost\SGISystem.Services.WCFHost.csproj", "{F9928256-C304-4F23-9FB7-F2E43F4C33E3}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SGISystem.Database", "SGISystem.Database\SGISystem.Database.sqlproj", "{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Database", "05 - Database", "{A0E47091-B0A1-4C0F-BD79-7B709E4B2321}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rmengoa.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = System.Services.Implementation\\SGISystem.Services.Implementation.csproj
+		SccProjectTopLevelParentUniqueName1 = SGI.sln
+		SccProjectName1 = System.Services.Implementation
+		SccLocalPath1 = System.Services.Implementation
+		SccProjectUniqueName2 = SGISystem.Services.WCFHost\\SGISystem.Services.WCFHost.csproj
+		SccProjectTopLevelParentUniqueName2 = SGI.sln
+		SccProjectName2 = SGISystem.Services.WCFHost
+		SccLocalPath2 = SGISystem.Services.WCFHost
+		SccProjectUniqueName3 = System.Services.Interfaces\\SGISystem.Services.Contracts.csproj
+		SccProjectTopLevelParentUniqueName3 = SGI.sln
+		SccProjectName3 = System.Services.Interfaces
+		SccLocalPath3 = System.Services.Interfaces
+		SccProjectUniqueName4 = System.Domain\\SGISystem.Domain.csproj
+		SccProjectTopLevelParentUniqueName4 = SGI.sln
+		SccProjectName4 = System.Domain
+		SccLocalPath4 = System.Domain
+		SccProjectUniqueName5 = System.InfraStructure\\SGISystem.InfraStructure.csproj
+		SccProjectTopLevelParentUniqueName5 = SGI.sln
+		SccProjectName5 = System.InfraStructure
+		SccLocalPath5 = System.InfraStructure
+		SccProjectUniqueName6 = System.Application\\SGISystem.Application.csproj
+		SccProjectTopLevelParentUniqueName6 = SGI.sln
+		SccProjectName6 = System.Application
+		SccLocalPath6 = System.Application
+		SccProjectUniqueName7 = System.Helpers\\SGISystem.Helpers.csproj
+		SccProjectTopLevelParentUniqueName7 = SGI.sln
+		SccProjectName7 = System.Helpers
+		SccLocalPath7 = System.Helpers
+		SccProjectUniqueName8 = SGI.Proxy\\SGI.Proxy.csproj
+		SccProjectTopLevelParentUniqueName8 = SGI.sln
+		SccProjectName8 = SGI.Proxy
+		SccLocalPath8 = SGI.Proxy
+		SccProjectUniqueName9 = SGI.MVCCliente\\SGI.MVCCliente.csproj
+		SccProjectTopLevelParentUniqueName9 = SGI.sln
+		SccProjectName9 = SGI.MVCCliente
+		SccLocalPath9 = SGI.MVCCliente
+		SccProjectUniqueName10 = SGISystem.Database\\SGISystem.Database.sqlproj
+		SccProjectTopLevelParentUniqueName10 = SGI.sln
+		SccProjectName10 = SGISystem.Database
+		SccLocalPath10 = SGISystem.Database
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D47917B-8175-409D-89BE-32DC6F292740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D47917B-8175-409D-89BE-32DC6F292740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D47917B-8175-409D-89BE-32DC6F292740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D47917B-8175-409D-89BE-32DC6F292740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1260E57B-E729-4868-9151-CF22B28300DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1260E57B-E729-4868-9151-CF22B28300DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1260E57B-E729-4868-9151-CF22B28300DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1260E57B-E729-4868-9151-CF22B28300DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D568E595-12A7-48CD-B398-837A55595E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D568E595-12A7-48CD-B398-837A55595E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D568E595-12A7-48CD-B398-837A55595E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D568E595-12A7-48CD-B398-837A55595E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415204C5-D659-48F0-8B4E-D2468505C72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415204C5-D659-48F0-8B4E-D2468505C72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415204C5-D659-48F0-8B4E-D2468505C72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415204C5-D659-48F0-8B4E-D2468505C72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AC8768-3578-44A3-9DC8-7E707E02AFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AC8768-3578-44A3-9DC8-7E707E02AFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AC8768-3578-44A3-9DC8-7E707E02AFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AC8768-3578-44A3-9DC8-7E707E02AFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9CAC6C-5BE3-4F0E-B201-C6B05C06EFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9CAC6C-5BE3-4F0E-B201-C6B05C06EFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9CAC6C-5BE3-4F0E-B201-C6B05C06EFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9CAC6C-5BE3-4F0E-B201-C6B05C06EFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3A6FBD-4010-4FBD-95A6-00C84326C1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3A6FBD-4010-4FBD-95A6-00C84326C1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3A6FBD-4010-4FBD-95A6-00C84326C1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3A6FBD-4010-4FBD-95A6-00C84326C1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9928256-C304-4F23-9FB7-F2E43F4C33E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9928256-C304-4F23-9FB7-F2E43F4C33E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9928256-C304-4F23-9FB7-F2E43F4C33E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9928256-C304-4F23-9FB7-F2E43F4C33E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EADC3C9E-258F-4408-9E5D-1D1E8C76CDDB} = {5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}
+		{FD5CC2F4-CDAF-4674-92C4-7A443E624BEC} = {5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}
+		{A8F9255D-2B63-40ED-92EE-45D20C1BC461} = {5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}
+		{91CD354C-B068-40EF-9BED-1242A793CEF5} = {5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}
+		{55B3DC98-5530-4C0F-8D40-A3EA8A30B02E} = {5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}
+		{A0E47091-B0A1-4C0F-BD79-7B709E4B2321} = {5CF90F45-895E-4CEA-93F4-D0FCBE0E8BD9}
+		{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53} = {EADC3C9E-258F-4408-9E5D-1D1E8C76CDDB}
+		{1260E57B-E729-4868-9151-CF22B28300DC} = {A099A619-C6DB-4A31-B925-D401BF1D7D29}
+		{AC9CAC6C-5BE3-4F0E-B201-C6B05C06EFEC} = {A099A619-C6DB-4A31-B925-D401BF1D7D29}
+		{4D47917B-8175-409D-89BE-32DC6F292740} = {FD5CC2F4-CDAF-4674-92C4-7A443E624BEC}
+		{D568E595-12A7-48CD-B398-837A55595E10} = {A8F9255D-2B63-40ED-92EE-45D20C1BC461}
+		{415204C5-D659-48F0-8B4E-D2468505C72C} = {91CD354C-B068-40EF-9BED-1242A793CEF5}
+		{C3AC8768-3578-44A3-9DC8-7E707E02AFD3} = {91CD354C-B068-40EF-9BED-1242A793CEF5}
+		{F9928256-C304-4F23-9FB7-F2E43F4C33E3} = {91CD354C-B068-40EF-9BED-1242A793CEF5}
+		{3B3A6FBD-4010-4FBD-95A6-00C84326C1DF} = {55B3DC98-5530-4C0F-8D40-A3EA8A30B02E}
+		{49E100AF-FD6E-4DBC-B2D5-2FE9550778CC} = {A0E47091-B0A1-4C0F-BD79-7B709E4B2321}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,104 @@
+﻿@model GrupoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+
+@using (Html.BeginForm("Guardar", "Grupo", FormMethod.Get, new { @id = "formEdit" }))
+{
+    <h4>
+        @Html.DisplayFor(model => model.EntityGrupo.DescripcionCorta)
+    </h4>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-horizontal">
+                @Html.HiddenFor(model => model.EntityGrupo.Key.IDGrupo)
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Grupo Padre")
+
+                    @Html.DropDownListFor(model => model.EntityGrupo.IDGrupoPadre,
+                    new SelectList(Model.ListGrupo, "Key.IDGrupo", "DescripcionCorta"),
+                    @Constantes.CadenaSeleccione,
+                    new
+                    {
+                        @class = "form-control"
+                    })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Nombre")
+
+                        @Html.TextBoxFor(model => model.EntityGrupo.DescripcionCorta,
+                new
+                {
+                    @class = "form-control",
+                    data_msg_required = "El campo Nombre es requerido",
+                    data_rule_required = "true"
+                })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Descripcion Larga")
+
+                        @Html.TextBoxFor(model => model.EntityGrupo.DescripcionLarga,
+                new
+                {
+                    @class = "form-control",
+                    data_msg_required = "El campo Descripcion Larga es requerido",
+                    data_rule_required = "true"
+                })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Estado")
+
+                        <div class="inline-control" id="estado-grupo">
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityGrupo.Estado, Constantes.Activo,
+                                    new
+                                    {
+                                        data_rule_radio_custom = "#estado-grupo",
+                                        data_msg_radio_custom="El campo Estado es requerido"
+                                    })
+                                    @Constantes.CadenaActivo
+                                </label>
+                            </div>
+
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityGrupo.Estado, Constantes.Inactivo)
+                                    @Constantes.CadenaInactivo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    @*OPCIONES*@
+                    <div class="form-group" id="opciones">
+                        <div class="text-center">
+                            <button id="GuardarButton" type="button" class="btn btn-default" onclick="GuardarGrupo();">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp;Guardar
+                            </button>
+                            <button id="EliminarButton" type="button" class="btn btn-danger" onclick="HideModal();">
+                                <span class="glyphicon glyphicon-trash"></span>&nbsp;Cancelar
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+    </div>
+}

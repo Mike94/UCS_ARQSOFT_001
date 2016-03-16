@@ -1,0 +1,200 @@
+﻿@model  EmpleadoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using System.Web.Script.Serialization
+
+@using (Html.BeginForm("Guardar", "Empleado", FormMethod.Get, new { @id = "formEdit" }))
+{
+    <h4>
+        @Html.DisplayFor(model => model.EntityEmpleado.Nombres)
+    </h4>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-horizontal">
+                @if (null != Model.EntityEmpleado.Key)
+                {
+                    @Html.HiddenFor(model => model.EntityEmpleado.Key.IDEmpleado)
+                }
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.LabelFor(model => model.EntityEmpleado.Nombres)
+
+                        @Html.TextBoxFor(model => model.EntityEmpleado.Nombres,
+                new
+                {
+                    @class = "form-control",
+                    data_msg_required = "El campo Nombres es requerido",
+                    data_rule_required = "true"
+                })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.LabelFor(model => model.EntityEmpleado.Apellidos)
+
+                        @Html.TextBoxFor(model => model.EntityEmpleado.Apellidos,
+                new
+                {
+                    @class = "form-control",
+                    data_msg_required = "El campo Apellidos es requerido",
+                    data_rule_required = "true"
+                })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Tienda")
+
+                        @Html.DropDownListFor(model => model.EntityEmpleado.CodTienda,
+                    new SelectList(Model.ListTienda, "Key.CodTienda", "NombreTienda"),
+                    @Constantes.CadenaSeleccione,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Tienda es requerido",
+                        data_rule_required = "true"
+                    })
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Cargo")
+
+                        @Html.DropDownListFor(model => model.EntityEmpleado.IdCargo,
+                    new SelectList(Model.ListCargo, "Key.IdCargo", "NombreCargo"),
+                    @Constantes.CadenaSeleccione,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Cargo es requerido",
+                        data_rule_required = "true"
+                    })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.LabelFor(model => model.EntityEmpleado.DNI)
+
+                        @Html.TextBoxFor(model => model.EntityEmpleado.DNI,
+                new
+                {
+                    @class = "form-control key-integer",
+                    data_msg_required = "El campo DNI es requerido",
+                    data_rule_required = "true",
+                    data_msg_number = "El campo DNI debe tener el formato correcto",
+                    data_rule_number = "true",
+                    maxLength = 8
+                })
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+                        @Html.LabelFor(model => model.EntityEmpleado.Sexo)
+
+                        <div class="inline-control" id="sexo-grupo">
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityEmpleado.Sexo, Constantes.CaracterMasculino,
+                                    new
+                                    {
+                                        data_rule_radio_custom = "#sexo-grupo",
+                                        data_msg_radio_custom = "El campo Estado es requerido"
+                                    })
+                                    @Constantes.CadenaMasculino
+                                </label>
+                            </div>
+
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityEmpleado.Sexo, Constantes.CaracterFemenino)
+                                    @Constantes.CadenaFemenino
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Fecha de Nacimiento")
+
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.EntityEmpleado.FechaNacimiento,
+                    new
+                    {
+                        @class = "form-control datepicker",
+                        data_msg_date_pe = "Ingrese una fecha correcta",
+                        data_rule_date_pe = "true",
+                        data_msg_required = "El campo Fecha de Nacimiento es requerido",
+                        data_rule_required = "true"
+                    })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Estado Civil")
+
+                        @Html.DropDownListFor(model => model.EntityEmpleado.EstadoCivil,
+                    new SelectList(Model.ListEstadoCivil, "IdEstadoCivil", "EstadoCivil"),
+                    @Constantes.CadenaSeleccione,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Estado Civil es requerido",
+                        data_rule_required = "true"
+                    })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Estado")
+
+                        <div class="inline-control" id="estado-grupo">
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityEmpleado.Estado, Constantes.Activo,
+                                new
+                                {
+                                    data_rule_radio_custom = "#estado-grupo",
+                                    data_msg_radio_custom = "El campo Estado es requerido"
+                                })
+                                    @Constantes.CadenaActivo
+                                </label>
+                            </div>
+
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityEmpleado.Estado, Constantes.Inactivo)
+                                    @Constantes.CadenaInactivo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @*OPCIONES*@
+                <div class="form-group" id="opciones">
+                    <div class="text-center">
+                        <button id="GuardarButton" type="button" class="btn btn-default" onclick="GuardarEmpleado();">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Guardar
+                        </button>
+                        <button id="EliminarButton" type="button" class="btn btn-danger" onclick="HideModal();">
+                            <span class="glyphicon glyphicon-trash"></span>&nbsp;Cancelar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}

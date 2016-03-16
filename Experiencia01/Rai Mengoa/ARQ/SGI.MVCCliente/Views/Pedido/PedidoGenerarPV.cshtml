@@ -1,0 +1,51 @@
+﻿@model  PedidoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@{
+    ViewBag.Title = "PedidoGridPV";
+}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-2 text-left">
+                    @Html.Label("Grupos de Productos", new { @class = "control-label" })
+                </div>
+
+                <div class="col-sm-3">
+                    @Html.DropDownListFor(model => model.ProductoViewModel.EntityProductoPaginacion.IdGrupo,
+                    new SelectList(Model.GrupoViewModel.ListGrupo, "Key.IDGrupo", "DescripcionCorta"),
+                    @Constantes.CadenaTodos,
+                    new
+                    {
+                        id = "cboIDGrupo",
+                        @class = "form-control",
+                        onchange = "buscarProducto();"
+                    })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Partial(Constantes.ProductoPedidoGridPV, Model.ProductoViewModel)
+            </div>
+
+
+            @*OPCIONES*@
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-2">
+                    <button id="preVistaButton" type="button" class="form-control btn btn-default" onclick="return GenerarPDF();" >
+                        <span class="glyphicon glyphicon-floppy-save">
+                        </span>&nbsp;Generar PDF
+                    </button>
+                </div>
+
+                <div class="col-sm-2">
+                    <button id="guardarButton" type="button" class="form-control btn btn-primary" onclick="return guardarPedidoCompleto();">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>

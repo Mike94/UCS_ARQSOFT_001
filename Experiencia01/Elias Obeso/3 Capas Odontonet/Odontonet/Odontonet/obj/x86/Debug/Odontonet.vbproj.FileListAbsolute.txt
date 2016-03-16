@@ -1,0 +1,16 @@
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\bin\Debug\Odontonet.exe
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\bin\Debug\Odontonet.pdb
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\bin\Debug\Odontonet.xml
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\WindowsApplication1.frm_logeo.resources
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\WindowsApplication1.frm_MantUsu.resources
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\Odontonet.exe
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\Odontonet.xml
+C:\Users\Elias\Desktop\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\Odontonet.pdb
+E:\CPE\Arquitectura de Software\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\Odontonet.exe
+E:\CPE\Arquitectura de Software\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\Odontonet.xml
+E:\CPE\Arquitectura de Software\3 Capas Odontonet\Odontonet\Odontonet\obj\x86\Debug\Odontonet.pdb

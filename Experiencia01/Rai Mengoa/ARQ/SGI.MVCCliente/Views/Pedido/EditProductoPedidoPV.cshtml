@@ -1,0 +1,50 @@
+﻿@model ProductoViewModel
+@using SGI.Proxy.Services.ProductoServices
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using System.Web.Script.Serialization
+
+@using(Html.BeginForm("Guardar", "Pedido", FormMethod.Get, new { @id ="formEdit" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-horizontal">
+                @Html.HiddenFor(model => model.EntityProducto.Key.IDProducto)
+                @Html.Hidden("opcion", Convert.ToInt32(ViewData["opcion"]), new { @id = "hdn_opcion" })
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        @*@Html.Label("lblCantidad", "Cantidad", new
+                        {
+                            @class = "control-label"
+                        })*@
+
+                        @Html.TextBoxFor(model => model.EntityProducto.Cantidadinventario,
+                        new
+                        {
+                            @class = "form-control key-integer text-center",
+                            data_msg_required = "Ingrese una cantidad",
+                            data_rule_required = "true",
+                            maxLength = 25
+                        })
+                    </div>
+                </div>
+
+                @*OPCIONES*@
+                <div class="form-group" id="opciones">
+                    <div class="text-center">
+
+                        <button id="GuardarButton" type="button" class="btn btn-default" onclick="GuardarProductoPedido();">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Guardar
+                        </button>
+                        <button id="EliminarButton" type="button" class="btn btn-danger" onclick="HideModalShort();">
+                            <span class="glyphicon glyphicon-trash"></span>&nbsp;Cancelar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}

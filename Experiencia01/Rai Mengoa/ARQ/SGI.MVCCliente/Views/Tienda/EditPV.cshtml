@@ -1,0 +1,117 @@
+﻿@model TiendaViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+
+@using (Html.BeginForm("Guardar", "Tienda", FormMethod.Get, new { @id = "formEdit" }))
+{
+    <h4>
+        @Html.DisplayFor(model => model.EntityTienda.Key.CodTienda)
+    </h4>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Codigo Tienda")
+
+                        @Html.TextBoxFor(model => model.EntityTienda.Key.CodTienda,
+                    new
+                    {
+                        @class = "form-control cod-tienda",
+                        data_msg_required = "El campo Codigo es requerido",
+                        data_rule_required = "true",
+                        maxLength = 5
+                    })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Nombre Tienda")
+
+                        @Html.TextBoxFor(model => model.EntityTienda.NombreTienda,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Nombre Tienda es requerido",
+                        data_rule_required = "true"
+                    })
+                    </div>
+                </div>
+
+                <div id="FormUbigeoPV">
+                    @Html.Partial(Constantes.UbigeoPV)
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Dirección")
+
+                        @Html.TextBoxFor(model => model.EntityTienda.Direccion,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Direccion es requerido",
+                        data_rule_required = "true"
+                    })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.LabelFor(model => model.EntityTienda.Referencia)
+
+                        @Html.TextBoxFor(model => model.EntityTienda.Referencia,
+                    new
+                    {
+                        @class = "form-control"
+                    })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Estado")
+
+                        <div class="inline-control" id="estado-grupo">
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityTienda.Estado, Constantes.Activo,
+                                new
+                                {
+                                    data_rule_radio_custom = "#estado-grupo",
+                                    data_msg_radio_custom = "El campo Estado es requerido"
+                                })
+                                    @Constantes.CadenaActivo
+                                </label>
+                            </div>
+
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityTienda.Estado, Constantes.Inactivo)
+                                    @Constantes.CadenaInactivo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    @*OPCIONES*@
+                    <div class="form-group" id="opciones">
+                        <div class="text-center">
+                            <button id="GuardarButton" type="button" class="btn btn-default" onclick="GuardarTienda();">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp;Guardar
+                            </button>
+                            <button id="EliminarButton" type="button" class="btn btn-danger" onclick="HideModal();">
+                                <span class="glyphicon glyphicon-trash"></span>&nbsp;Cancelar
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
+}

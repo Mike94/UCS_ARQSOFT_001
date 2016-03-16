@@ -1,0 +1,110 @@
+﻿@model UsuarioViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using System.Web.Script.Serialization
+
+@using (Html.BeginForm("Guardar", "Usuario", FormMethod.Get, new { @id = "formEdit" }))
+{    
+    <h4>
+        @Html.DisplayFor(model => model.EntityUsuario.Usuario)
+    </h4>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-horizontal">
+                @Html.HiddenFor(model => model.EntityUsuario.Key.IDUsuario)
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Nombre Usuario")
+
+                        @Html.TextBoxFor(model => model.EntityUsuario.Usuario,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Nombre Usuario es requerido",
+                        data_rule_required = "true",
+                        maxLength = 25
+                    })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                    @Html.LabelFor(model => model.EntityUsuario.Clave)
+
+                    @Html.TextBoxFor(model => model.EntityUsuario.Clave,
+                    new
+                    {
+                        id = "password",
+                        @class = "form-control",
+                        data_msg_required = "El Clave es requerido",
+                        data_rule_required = "true",
+                        type = "password",
+                        maxLength = 25
+                    })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        @Html.Label("Re-Clave")
+
+                        @Html.TextBoxFor(model => model.ReClave,
+                        new
+                        {
+                            @class = "form-control",
+                            data_msg_required = "El campo Re-Clave es requerido",
+                            data_rule_required = "true",
+                            data_msg_equalto = "Las Claves no coiniciden",
+                            data_rule_equalto = "#password",
+                            type = "password",
+                            maxLength = 25
+                        })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-6 text-left">
+                        @Html.Label("Estado")
+
+                        <div class="inline-control" id="estado-grupo-usu">
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityUsuario.Estado, Constantes.Activo,
+                                    new
+                                    {
+                                        data_rule_radio_custom = "#estado-grupo-usu",
+                                        data_msg_radio_custom = "El campo Estado es requerido"
+                                    })
+                                    @Constantes.CadenaActivo
+                                </label>
+                            </div>
+
+                            <div class="col-sm-6 radio">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.EntityUsuario.Estado, Constantes.Inactivo)
+                                    @Constantes.CadenaInactivo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*OPCIONES*@
+                <div class="form-group" id="opciones">
+                    <div class="text-center">
+                        <button id="GuardarButton" type="button" class="btn btn-default" onclick="GuardarUsuario();">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Guardar
+                        </button>
+                        <button id="EliminarButton" type="button" class="btn btn-danger" onclick="HideModal();">
+                            <span class="glyphicon glyphicon-trash"></span>&nbsp;Cancelar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}

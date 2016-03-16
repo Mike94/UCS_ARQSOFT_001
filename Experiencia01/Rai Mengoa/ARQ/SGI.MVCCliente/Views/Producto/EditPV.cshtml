@@ -1,0 +1,161 @@
+﻿@model  ProductoViewModel 
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+
+@using(Html.BeginForm("Guardar", "Producto", FormMethod.Get, new { @id ="formEdit" }))
+{
+<h4>
+    @Html.DisplayFor(model => model.EntityProducto.Nombre)
+</h4>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-horizontal">
+            @if (null != Model.EntityProducto.Key)
+            {
+                @Html.HiddenFor(model => model.EntityProducto.Key.IDProducto)
+            }
+            <div class="form-group">
+
+                <div class="col-sm-6 text-left">
+                    @Html.Label("Nombre")
+
+                    @Html.TextBoxFor(model => model.EntityProducto.Nombre,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Nombres es requerido",
+                        data_rule_required = "true"
+                    })
+                </div>
+
+                <div class="col-sm-6 text-left">
+                    @Html.Label("Descripción Corta") 
+
+                    @Html.TextBoxFor(model => model.EntityProducto.DescripcionCorta,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Descripción Corta es requerido",
+                        data_rule_required = "true"
+                    })
+                </div>
+
+                <div class="col-sm-12 text-left">
+                    @Html.Label("Descripción Larga")
+
+                    @Html.TextBoxFor(model => model.EntityProducto.DescripcionLarga,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El campo Descripción Larga es requerido",
+                        data_rule_required = "true"
+                    })
+                </div>
+            </div>
+             
+                <div class="form-group">
+                    <div class="col-sm-4 text-left">
+                        @Html.Label("Cantidad Min Inventario")
+
+                        @Html.TextBoxFor(model => model.EntityProducto.CantidadMinimaInventario,
+                        new
+                        {
+                            @class = "form-control key-integer",
+                            @id = "UnidadMedida",
+                            data_msg_required = "El campo Cantidad Minima de Inventario es requerido",
+                            data_rule_required = "true"
+                        })
+                    </div>
+
+                    <div class="col-sm-4 text-left">
+                        @Html.Label("Cantidad Inventario")
+
+                        @Html.TextBoxFor(model => model.EntityProducto.Cantidadinventario,
+                        new
+                        {
+                            @class = "form-control key-integer",
+                            @id = "CantidadInventario",
+                            data_msg_required = "El campo Cantidad de Inventario es requerido",
+                            data_rule_required = "true",
+                            disabled = Model.EditableCantidadinventario
+                        })
+                    </div>
+
+                    <div class="col-sm-4 text-left">
+                        @Html.Label("Precio Unitario")
+
+                        @Html.TextBoxFor(model => model.EntityProducto.PrecioUnitario,
+                        new
+                        {
+                            @class = "form-control key-decimal",
+                            @id = "PrecioUnitario",
+                            data_msg_required = "El campo Precio Unitario es requerido",
+                            data_rule_required = "true",
+                            data_rule_number = "true",
+                            data_msg_number = "El campo Precio Unitario Debe ser un Valor Numerico"
+                        })
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <div class="col-sm-6 text-left">
+                    @Html.Label("Grupo")
+
+                    @Html.DropDownListFor(model => model.EntityProducto.IdGrupo,
+                    new SelectList(Model.ListGrupo, "Key.IDGrupo", "DescripcionCorta"),
+                    @Constantes.CadenaSeleccione,
+                    new
+                    {
+                        @class = "form-control",
+                        data_msg_required = "El Campo Grupo es requerido",
+                        data_rule_required = "true"
+                    })
+
+                    <div id="msggrupo"></div>
+                </div>
+
+                <div class="col-sm-6 text-left">
+                    @Html.Label("Estado")
+
+                    <div class="inline-control" id="estado-grupo">
+                        <div class="col-sm-6 radio">
+                            <label>
+                                @Html.RadioButtonFor(model => model.EntityProducto.Estado, Constantes.Activo,
+                                    new
+                                    {
+                                        data_rule_radio_custom = "#estado-grupo",
+                                        data_msg_radio_custom = "El campo Estado es requerido"
+                                    })
+                                @Constantes.CadenaActivo
+                            </label>
+                        </div>
+
+                        <div class="col-sm-6 radio">
+                            <label>
+                                @Html.RadioButtonFor(model => model.EntityProducto.Estado, Constantes.Inactivo)
+                                @Constantes.CadenaInactivo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            @*OPCIONES*@
+            <div class="form-group" id="opciones">
+                <div class="text-center">
+                    <button id="GuardarButton" type="button" class="btn btn-default" onclick="GuardarProducto();">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Guardar
+                    </button>
+                    <button id="CancelarButton" type="button" class="btn btn-danger" onclick="HideModal();">
+                        <span class="glyphicon glyphicon-trash"></span>&nbsp;Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+}

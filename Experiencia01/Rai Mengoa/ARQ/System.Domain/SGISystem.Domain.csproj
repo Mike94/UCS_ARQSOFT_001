@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{610EA03D-9CE2-4F23-8716-A4AFA4EE7D53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGISystem.Domain</RootNamespace>
+    <AssemblyName>SGISystem.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\EntityDistrito.cs" />
+    <Compile Include="Entities\EntityTipoEmpresa.cs" />
+    <Compile Include="Entities\EntityProvincia.cs" />
+    <Compile Include="Entities\EntityDepartamento.cs" />
+    <Compile Include="Entities\EntityDetallePedido.cs" />
+    <Compile Include="Entities\EntityEmpleado.cs" />
+    <Compile Include="Entities\EntityEmpresa.cs" />
+    <Compile Include="Entities\EntityCargo.cs" />
+    <Compile Include="Entities\EntityGrupo.cs" />
+    <Compile Include="Entities\EntityPedido.cs" />
+    <Compile Include="Entities\EntityTienda.cs" />
+    <Compile Include="Entities\Keys\KeyDistrito.cs" />
+    <Compile Include="Entities\Keys\KeyTipoEmpresa.cs" />
+    <Compile Include="Entities\Keys\KeyProvincia.cs" />
+    <Compile Include="Entities\Keys\KeyDepartamento.cs" />
+    <Compile Include="Entities\Keys\KeyEmpresa.cs" />
+    <Compile Include="Entities\EntityListaGrupo.cs" />
+    <Compile Include="Entities\EntityProducto.cs" />
+    <Compile Include="Entities\Keys\KeyCargo.cs" />
+    <Compile Include="Entities\Keys\KeyGrupo.cs" />
+    <Compile Include="Entities\Keys\KeyDetallePedido.cs" />
+    <Compile Include="Entities\Keys\KeyPedido.cs" />
+    <Compile Include="Entities\Keys\KeyTienda.cs" />
+    <Compile Include="Entities\Pagination\EntityCargoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityDepartamentoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityDistritoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityEmpresaPaginacion.cs" />
+    <Compile Include="Entities\Keys\KeyProducto.cs" />
+    <Compile Include="Entities\Pagination\EntityEmpleadoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityGrupoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityPaginacion.cs" />
+    <Compile Include="Entities\EntityUsuario.cs" />
+    <Compile Include="Entities\Pagination\EntityDetallePedidoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityPedidoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityProductoPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityProvinciaPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityTiendaPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityTipoEmpresaPaginacion.cs" />
+    <Compile Include="Entities\Pagination\EntityUsuarioPaginacion.cs" />
+    <Compile Include="Entities\Keys\KeyEmpleado.cs" />
+    <Compile Include="Entities\Keys\KeyUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IBaseRepository.cs" />
+    <Compile Include="Repository\IProvinciaRepository.cs" />
+    <Compile Include="Repository\IDistritoRepository.cs" />
+    <Compile Include="Repository\IDepartamentoRepository.cs" />
+    <Compile Include="Repository\ICargoRepository.cs" />
+    <Compile Include="Repository\IDetallePedidoRepository.cs" />
+    <Compile Include="Repository\IEmpleadoRepository.cs" />
+    <Compile Include="Repository\IEmpresaRepository.cs" />
+    <Compile Include="Repository\IGrupoRepository.cs" />
+    <Compile Include="Repository\IPedidoRepository.cs" />
+    <Compile Include="Repository\IProductoRepository.cs" />
+    <Compile Include="Repository\ITiendaRepository.cs" />
+    <Compile Include="Repository\ITipoEmpresaRepository.cs" />
+    <Compile Include="Repository\IUsuarioRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Helpers\SGISystem.Helpers.csproj">
+      <Project>{3b3a6fbd-4010-4fbd-95a6-00c84326c1df}</Project>
+      <Name>SGISystem.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

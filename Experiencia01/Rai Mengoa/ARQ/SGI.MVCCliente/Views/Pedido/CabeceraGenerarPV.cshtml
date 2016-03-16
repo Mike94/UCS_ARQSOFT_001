@@ -1,0 +1,101 @@
+﻿@model SGI.MVCCliente.ViewModel.PedidoViewModel
+@using SGI.MVCCliente.Helpers
+
+@using (Html.BeginForm("CabeceraGenerarPV", "Pedido", FormMethod.Get, new { @id = "formEditCabecera" }))
+{
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-sm-4">
+            @Html.Label("Nro Pedido")
+
+            @Html.TextBoxFor(model => model.EntityPedido.CodigoPedido,
+                    new
+                    {
+                        id = "txtCodigoPedido",
+                        @class = "form-control key-integer",
+                        @disabled = "disabled"
+                    })
+        </div>
+
+        <div class="col-sm-4">
+            @Html.Label("Proveedor")
+
+            @Html.DropDownListFor(model => model.EntityPedido.IDEmpresa,
+                new SelectList(Model.ListEmpresa, "Key.IDEmpresa", "RazonComercial"),
+                @Constantes.CadenaSeleccione,
+                new
+                {
+                    @class = "form-control",
+                    data_msg_required = "El Campo Proveedor es requerido",
+                    data_rule_required = "true"
+                })
+        </div>
+
+        <div class="col-sm-4">
+            @Html.Label("Fecha Pedido")
+
+            <div class="input-group">
+                @Html.TextBoxFor(model => model.EntityPedido.FechaPedido,
+                        new
+                        {
+                            @class = "form-control datepicker",
+                            data_msg_date_pe = "Ingrese una fecha correcta",
+                            data_rule_date_pe = "true",
+                            data_msg_required = "El campo Fecha de Pedido es requerido",
+                            data_rule_required = "true"
+                        })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4">
+            <br />
+            <button id="generarButton" type="button" class="form-control btn btn-success">
+                <span class="glyphicon glyphicon-refresh"></span>&nbsp;Generar Pedido
+            </button>
+        </div>
+
+        <div class="col-sm-4">
+            @Html.Label("Fecha Pago")
+
+            <div class="input-group">
+                @Html.TextBoxFor(model => model.EntityPedido.FechaPago,
+                            new
+                            {
+                                @class = "form-control datepicker",
+                                data_msg_date_pe = "Ingrese una fecha correcta",
+                                data_rule_date_pe = "true",
+                                data_msg_required = "El campo Fecha de Pago es requerido",
+                                data_rule_required = "true"
+                            })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            @Html.Label("Fecha Entrega")
+
+            <div class="input-group">
+                @Html.TextBoxFor(model => model.EntityPedido.FechaEntrega,
+                            new
+                            {
+                                @class = "form-control datepicker",
+                                data_msg_date_pe = "Ingrese una fecha correcta",
+                                data_rule_date_pe = "true",
+                                data_msg_required = "El campo Fecha de Entrega es requerido",
+                                data_rule_required = "true"
+                            })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+}

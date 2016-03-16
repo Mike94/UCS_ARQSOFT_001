@@ -1,0 +1,79 @@
+﻿@model EmpresaViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using SGI.Proxy.Services.EmpresaServices
+@using System.Web.Script.Serialization
+
+@if (Model.ListEmpresaPaginado.Count < 1)
+{
+    <table class="webGrid">
+        <thead>
+            <tr class="header">
+                <th scope="col">
+                    Codigo Empresa
+                </th>
+                <th scope="col">
+                    Tipo Empresa
+                </th>
+                <th scope="col">
+                    Razon Comercial
+                </th>
+                <th scope="col">
+                    Razon Social
+                </th>
+                <th scope="col">
+                    RUC
+                </th>
+                <th scope="col">
+                    Contacto
+                </th>
+                <th scope="col">
+                    Direccion
+                </th>
+                <th scope="col">
+                    Estado
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="8" class="text-center">
+                    <span>@Constantes.NoseEncontraronRegistros</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    var grid = new WebGrid(Model.ListEmpresaPaginado, canSort: false,
+    canPage: false, rowsPerPage: Constantes.RowsPerPage);
+
+    @Html.Hidden("EmpresaPageIndex", Model.EntityEmpresaPaginacion.EntityPaginacion.PageIndex, new { @id = "EmpresaPageIndex" })
+    @Html.Hidden("EmpresaRowsPerPage", Model.EntityEmpresaPaginacion.EntityPaginacion.RowsPerPage, new { @id = "EmpresaRowsPerPage" })
+    @Html.Hidden("EmpresaPageSize", Model.ListEmpresaPaginado.Count, new { @id = "EmpresaPageSize" })
+    @Html.Hidden("EmpresaRowCount", Model.EntityEmpresaPaginacion.EntityPaginacion.RowCount, new { @id = "EmpresaRowCount" })
+
+    @grid.GetHtml(tableStyle: "webGrid",
+        headerStyle: "header",
+        alternatingRowStyle: "alt",
+        selectedRowStyle: "select",
+        columns: grid.Columns(
+        grid.Column("Codigo Empresa", format: (item) => item.CodigoEmpresa),
+        grid.Column("TipoEmpresaNombre", "Tipo Empresa"),
+        grid.Column("RazonComercial", "Razon Comercial"),
+        grid.Column("RazonSocial", "Razon Social"),
+        grid.Column("RUC", "RUC"),
+        grid.Column("Contacto", "Contacto"),
+        grid.Column("Direccion", "Direccion"),
+        grid.Column("EstadoNombre", "Estado"),
+        grid.Column("Editar", format:
+        @<text>  @{
+            var json = new JavaScriptSerializer().Serialize(item.Key);
+            <button id="searchButton" type="button" class="btn btn-default" onclick="EditarEmpresa(@json)">
+                <span class="glyphicon glyphicon-edit"></span>
+            </button>
+        }</text>))
+      )
+    <div id="pag_tblEmpresa"></div>
+}

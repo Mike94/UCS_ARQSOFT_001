@@ -1,0 +1,54 @@
+﻿@model TiendaViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+
+<div class="form-group">
+    <div class="col-sm-12 text-left">
+        @Html.Label("Departamento")
+        
+        @Html.DropDownListFor(model => model.EntityTienda.IdRegion,
+        new SelectList(Model.ListDepartamento, "Key.IdDepartamento", "Nombre"),
+        @Constantes.CadenaSeleccione,
+        new
+        {
+            @class = "form-control",
+            data_msg_required = "El Campo Departamento es requerido",
+            data_rule_required = "true",
+            onchange = "return BuscarUbigeoTienda()"
+        })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-12 text-left">
+        @Html.Label("Provincia")
+
+        @Html.DropDownListFor(model => model.EntityTienda.IdProvincia,
+        new SelectList(Model.ListProvincia, "Key.IdProvincia", "Nombre"),
+        @Constantes.CadenaSeleccione,
+        new
+        {
+            @class = "form-control",
+            data_msg_required = "El Campo Provincia es requerido",
+            data_rule_required = "true",
+            onchange = "return BuscarUbigeoTienda()"
+        })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-12 text-left">
+        @Html.Label("Distrito")
+
+        @Html.DropDownListFor(model => model.EntityTienda.IdDistrito,
+        new SelectList(Model.ListDistrito, "Key.IdDistrito", "Nombre"),
+        @Constantes.CadenaSeleccione,
+        new
+        {
+            @class = "form-control",
+            data_msg_required = "El Campo Distrito es requerido",
+            data_rule_required = "true",
+            onchange = "return BuscarUbigeoTienda()"
+        })
+    </div>
+</div>

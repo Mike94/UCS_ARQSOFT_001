@@ -1,0 +1,66 @@
+﻿@model CargoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@using SGI.Proxy.Services.CargoServices
+@using System.Web.Script.Serialization
+
+@if (Model.ListCargoPaginado.Count < 1)
+{
+    <table class="webGrid">
+        <thead>
+            <tr class="header">
+                <th scope="col">
+                    Codigo
+                </th>
+                <th scope="col">
+                    Nombre Cargo
+                </th>
+                <th scope="col">
+                    Descripcion
+                </th>
+                <th scope="col">
+                    Estado
+                </th>
+                <th scope="col">
+                    Editar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="5" class="text-center">
+                    <span>@Constantes.NoseEncontraronRegistros</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    var grid = new WebGrid(Model.ListCargoPaginado, canSort: false,
+    canPage: false, rowsPerPage: Constantes.RowsPerPage);
+
+    @Html.Hidden("CargoPageIndex", Model.EntityCargoPaginacion.EntityPaginacion.PageIndex, new { @id = "CargoPageIndex" })
+    @Html.Hidden("CargoRowsPerPage", Model.EntityCargoPaginacion.EntityPaginacion.RowsPerPage, new { @id = "CargoRowsPerPage" })
+    @Html.Hidden("CargoPageSize", Model.ListCargoPaginado.Count, new { @id = "CargoPageSize" })
+    @Html.Hidden("CargoRowCount", Model.EntityCargoPaginacion.EntityPaginacion.RowCount, new { @id = "CargoRowCount" })
+
+    @grid.GetHtml(tableStyle: "webGrid",
+        headerStyle: "header",
+        alternatingRowStyle: "alt",
+        selectedRowStyle: "select",
+        columns: grid.Columns(
+        grid.Column("Codigo", format: (item) => item.Key.IDCargo),
+        grid.Column("NombreCargo", "Nombre Cargo"),
+        grid.Column("Descripcion", "Descripcion"),
+        grid.Column("EstadoNombre", "Estado"),
+        grid.Column("Editar", format:
+        @<text>  @{
+            var json = new JavaScriptSerializer().Serialize(item.Key);
+            <button id="searchButton" type="button" class="btn btn-default" onclick="EditarCargo(@json)">
+                <span class="glyphicon glyphicon-edit"></span>
+            </button>
+        }</text>))
+      )
+    <div id="pag_tblCargo"></div>
+}

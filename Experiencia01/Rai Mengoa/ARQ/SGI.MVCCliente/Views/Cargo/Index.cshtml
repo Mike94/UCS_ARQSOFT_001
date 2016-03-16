@@ -1,0 +1,78 @@
+﻿@model SGI.MVCCliente.ViewModel.CargoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Hidden("Url_Cargo_GridPV", Url.Action("CargoGridPV", "Cargo"), new { @id = "Url_CargoGridPV" })
+@Html.Hidden("Url_Cargo_Guardar", Url.Action("Guardar", "Cargo"), new { @id = "Url_Cargo_Guardar" })
+@Html.Hidden("Url_Cargo_Add", Url.Action("Add", "Cargo"), new { @id = "Url_Cargo_Add" })
+@Html.Hidden("Url_Cargo_Edit", Url.Action("Edit", "Cargo"), new { @id = "Url_Cargo_Edit" })
+@Html.Hidden("Url_Cargo_InnerEdit", Url.Action("InnerEdit", "Cargo"), new { @id = "Url_Cargo_InnerEdit" })
+
+@using (Html.BeginForm("Index", "Cargo"))
+{
+    <h3 class="page-header">
+        <span>Información de Cargos</span>
+    </h3>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        @Html.Label("Nombre Cargo")
+
+                        @Html.TextBoxFor(model => model.EntityCargoPaginacion.NombreCargo, new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-sm-offset-0 col-sm-4">
+                        @Html.LabelFor(model => model.EntityCargoPaginacion.Estado)
+
+                        <div class="inline-control">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.EntityCargoPaginacion.Estado, Constantes.Activo)
+                                @Constantes.CadenaActivo
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.EntityCargoPaginacion.Estado, Constantes.Inactivo)
+                                @Constantes.CadenaInactivo
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.EntityCargoPaginacion.Estado, Constantes.UnoNegativo)
+                                @Constantes.CadenaTodos
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                @*OPCIONES*@
+                <div class="form-group">
+                    <div class="text-center">
+                        <button id="searchButton" type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>&nbsp;Buscar
+                        </button>
+                        <button id="addButton" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="CargoGridPV">
+        @if (Model.ListCargoPaginado.Count > Constantes.Cero)
+        {
+            @Html.Partial(Constantes.CargoGridPV)
+        }
+    </div>
+
+    <script src="~/Scripts/Views/Cargo.js"></script>
+}
+

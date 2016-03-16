@@ -1,0 +1,76 @@
+﻿@model  ProductoViewModel
+@using SGI.MVCCliente.ViewModel
+@using SGI.MVCCliente.Helpers
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Hidden("Url_Producto_GridPV", Url.Action("ProductoGridPV", "Producto"), new { @id = "Url_Producto_GridPV" })
+@Html.Hidden("Url_Producto_Insertar", Url.Action("GuardarProducto", "Producto"), new { @id = "Url_Producto_Insertar" })
+@Html.Hidden("Url_Producto_Add", Url.Action("add", "Producto"), new { @id = "Url_Producto_Add" })
+@Html.Hidden("Url_Producto_InnerEdit", Url.Action("InnerEdit", "Producto"), new { @id = "Url_Producto_InnerEdit" })
+
+@using (Html.BeginForm("Index", "Producto"))
+{
+    <h3 class="page-header">
+        <span>Información de Productos</span>
+    </h3>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        @Html.Label("Nombre Producto")
+
+                        @Html.TextBoxFor(model => model.EntityProductoPaginacion.Nombre, new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-sm-offset-0 col-sm-4">
+                        @Html.LabelFor(model => model.EntityProductoPaginacion.Estado)
+
+                        <div class="inline-control">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.EntityProductoPaginacion.Estado, Constantes.Activo)
+                                @Constantes.CadenaActivo
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.EntityProductoPaginacion.Estado, Constantes.Inactivo)
+                                @Constantes.CadenaInactivo
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.EntityProductoPaginacion.Estado, Constantes.UnoNegativo)
+                                @Constantes.CadenaTodos
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                @*OPCIONES*@
+                <div class="form-group">
+                    <div class="text-center">
+                        <button id="searchButton" type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>&nbsp;Buscar
+                        </button>
+                        <button id="btnAgregar" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="ProductoGridPV">
+        @if (Model.ListProductoPaginado.Count > Constantes.Cero)
+        {
+            @Html.Partial(Constantes.ProductoGridPV)
+        }
+    </div>
+
+    <script src="~/Scripts/Views/Producto.js"></script>
+}
+

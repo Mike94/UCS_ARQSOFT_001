@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Iniciar Sesion</title>
+
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.login.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.4.custom.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskedinput.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Base/Site.js")" type="text/javascript"></script>
+</head>
+<body class="back-none">
+    <div id="login">
+        <h1 class="big-bold">
+            Sistema de Gestión de Inventarios
+        </h1>
+
+        <div class="inner">
+            <div class="login-div">
+                @using (Html.BeginForm("IngresarSesion", "Cuenta", FormMethod.Post, new { @id = "formLogin" }))
+                {
+                    <div class="loginPic">
+                        <img src="~/Images/ic_launcher-web.png" class="login-img" />
+                    </div>
+                    @Html.TextBox("usuario", "", 
+                    new 
+                    { 
+                        @class = "form-control",
+                        data_msg_required = "Ingrese el usuario",
+                        data_rule_required = "true"
+                    })
+
+                    @Html.TextBox("clave", "", 
+                    new { 
+                        @class = "form-control", type="password",
+                        data_msg_required = "Ingrese la clave",
+                        data_rule_required = "true"
+                    })
+                    
+                    <div class="tip">
+                        @Html.Hidden("stringUrl", ViewData["stringUrl"].ToString())
+
+                        <button type="submit" class="btn btn-default login-btn"
+                                 onclick="Validate('#formLogin'); return IsValid('#formLogin');">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Iniciar sesion
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Cargo](
+	[IdCargo] [int] NOT NULL,
+	[NombreCargo] [varchar](50) NOT NULL,
+	[Descripcion] [varchar](150) NULL,
+	[Estado] [int] NULL,
+ CONSTRAINT [PK_Cargo] PRIMARY KEY CLUSTERED 
+(
+	[IdCargo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
