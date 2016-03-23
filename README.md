@@ -56,7 +56,33 @@
   
 # Clase 03
 
+- Fecha: 15-MAR-2016
 - Exposición 3 min
-- Test 
+- Test 01
+
+
+# Clase 04
+
+- Fecha: 17-MAR-2016
+
+
+# Clase 05
+
+- Fecha: 22-MAR-2016
+
+
+
+# Clase 06
+
+- Fecha: 29-MAR-2016
+- Test 02
+
+
+# Clase 07
+
+- Fecha: 31-MAR-2016
+- Exposición Segunda Experiencia
+
+
 
 
