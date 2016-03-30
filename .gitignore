@@ -6,3 +6,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/Clase06/CompEjbContrato/nbproject/private/
+/Clase06/CompEjb/nbproject/private/
+/Clase06/CompEjbContrato/build/
+/Clase06/CompEjb/dist/
+/Clase06/CompEjb/build/
+/Clase06/CompEjbContrato/dist/
+/Clase06/DemoWeb01/nbproject/private/
+/Clase06/DemoWeb01/build/
+/Clase06/WSDemo/nbproject/private/
+/Clase06/WSDemo/build/
