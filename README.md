@@ -1,4 +1,5 @@
 ![ARQUITECTURA DE SOFTWARE](https://raw.githubusercontent.com/gcoronelc/UCS_ARQSOFT_001/master/arqsoft.jpg)
+![ARQUITECTURA DE SOFTWARE](https://raw.githubusercontent.com/gcoronelc/UCS_ARQSOFT_001/master/promocion.jpg)
 
 # ARQUITECTURA DE SOFTWARE
 
