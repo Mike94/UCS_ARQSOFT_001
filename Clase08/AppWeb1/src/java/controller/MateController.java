@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.MateModel;
 
-/**
- *
- * @author Docente
- */
 @WebServlet(name = "MateController", urlPatterns = {"/MateController"})
 public class MateController extends HttpServlet {
 
@@ -36,5 +32,4 @@ public class MateController extends HttpServlet {
     rd.forward(request, response);
   }
 
-  
 }
